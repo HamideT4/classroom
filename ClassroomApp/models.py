@@ -8,8 +8,8 @@ class Groupe(models.Model):
 
 class Etudiant(models.Model):
     Genre = (
-        ('M', ('Masculin')),
-        ('F', ('Feminin')),
+        ('Masculin', ('Masculin')),
+        ('Feminin', ('Feminin')),
     )
     nom = models.CharField(max_length=250)
     prenom = models.CharField(max_length=200)
