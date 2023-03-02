@@ -59,7 +59,7 @@ ROOT_URLCONF = 'Django_git.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR/'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -81,11 +81,11 @@ WSGI_APPLICATION = 'Django_git.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ClassroomApp_db',
+        'NAME': 'classroom_db',
         'HOST': '127.0.0.1',
         'PORT': '3306',
         'USER': 'root',
-        'PASSWORD': 'Hams@ter123',
+        'PASSWORD': 'root@H1234!',
     }
 }
 
