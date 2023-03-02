@@ -3,7 +3,7 @@ from .models import*
 
 @admin.register(Etudiant)
 class StudentAdmin(admin.ModelAdmin):
-    list_display = ('nom', 'prenom', 'genre','telephone', 'email', )
+    list_display = ('nom', 'prenom', 'genre','telephone', 'email', 'photo', )
     ordering = ('nom', )
     search_fields =  ('nom', )
 

@@ -5,22 +5,25 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarsExample02">
-    <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item ">
             <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Etudiants</a>
+            <a class="nav-link" href="{% url 'students_list' %}">Etudiants</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Groupes</a>
+            <a class="nav-link" href="{% url 'groupes_list' %}">Groupes</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#">Commandes</a>
         </li>
     </ul>
-    <form class="form-inline my-2 my-md-0">
-        <input class="form-control" type="text" placeholder="Search">
+    <form class="d-flex" method="POST" action="{% url 'search_student' %}">
+        {% csrf_token %}
+        <input class="form-control me-2" type="search" placeholder="Search" name="searched" aria-label="Search"> 
+        <button class="btn btn-outline-primary" type="submit">Search</button>
     </form>
     </div>
+</div>
 </nav>
