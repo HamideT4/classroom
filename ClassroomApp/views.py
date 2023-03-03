@@ -106,3 +106,41 @@ def search_student(request):
         else:
             print('Not found ...')
             return render(request, 'students/not_found.html', {})
+
+def commande_list(request):
+	students = Commande.objects.all().order_by('menu')
+	return render(request, 'commandes/commande_list.html', {
+		'students': students,
+	})
+
+def add_commande(request):
+      submitted = False
+      if request.method == "POST":
+            form = CommandeForm(request.POST, request.FILES)
+            if form.is_valid():
+                  form.save()
+            return HttpResponseRedirect('/add_commande?submitted=True')
+      else:
+            form = CommandeForm
+      if 'submitted' in request.GET:
+            submitted=True
+      return render(request, 'commandes/add_commande.html', {
+        'form': form,
+        'submitted': submitted,
+        })
+
+def update_commande(request, commande_id):
+    student = Commande.objects.get(pk=commande_id)
+    form = CommandeForm(request.POST or None, instance=student)
+    if form.is_valid():
+        form.save()
+        return redirect('commande_list')
+    return render(request, 'commandes/update_commande.html', {
+        'student': student,
+        'form': form,
+    })  
+
+def delete_commande(request, commande_id):
+    student = Commande.objects.get(pk=commande_id)
+    student.delete()
+    return redirect('commande_list')
