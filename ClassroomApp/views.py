@@ -121,9 +121,9 @@ def search_group(request):
             print('Not found ...')
             return render(request, 'groupes/not_found.html', {})
 def commande_list(request):
-	students = Commande.objects.all().order_by('menu')
+	commandes = Commande.objects.all().order_by('menu')
 	return render(request, 'commandes/commande_list.html', {
-		'students': students,
+		'commandes': commandes,
 	})
 
 def add_commande(request):
@@ -143,17 +143,31 @@ def add_commande(request):
         })
 
 def update_commande(request, commande_id):
-    student = Commande.objects.get(pk=commande_id)
-    form = CommandeForm(request.POST or None, instance=student)
+    commande = Commande.objects.get(pk=commande_id)
+    form = CommandeForm(request.POST or None, instance=commande)
     if form.is_valid():
         form.save()
         return redirect('commande_list')
     return render(request, 'commandes/update_commande.html', {
-        'student': student,
+        'commande': commande,
         'form': form,
     })  
 
 def delete_commande(request, commande_id):
-    student = Commande.objects.get(pk=commande_id)
-    student.delete()
+    commande = Commande.objects.get(pk=commande_id)
+    commande.delete()
     return redirect('commande_list')
+
+def search_commande(request):
+    if request.method == "GET":
+        query = request.GET.get('query')
+        if query:
+            mutiple_q = Q(Q(menu__icontains=query))
+        commandes = Commande.objects.filter(mutiple_q)
+        if commandes:
+            return render(request, 'commandes/commande_list.html', {
+                'commandes': commandes
+            })
+        else:
+            print('Not found ...')
+            return render(request, 'commandes/not_found.html', {})
