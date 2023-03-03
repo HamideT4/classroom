@@ -19,11 +19,6 @@
             <a class="nav-link" href="#">Commandes</a>
         </li>
     </ul>
-    <form class="d-flex" method="GET" action="{% url 'search_student' %}">
-        {% csrf_token %}
-        <input class="form-control me-2" type="search" placeholder="Search" name="query" aria-label="Search"> 
-        <button class="btn btn-outline-primary" type="submit">Search</button>
-    </form>
     </div>
 </div>
 </nav>

@@ -55,8 +55,8 @@ def show_student(request, student_id):
     })
 
 def groupes_list(request):
-	students = Groupe.objects.all().order_by('nom')
-	return render(request, 'groupes/groupes_list.html', {'students': students,})
+	groupes = Groupe.objects.all().order_by('nom')
+	return render(request, 'groupes/groupes_list.html', {'groupes': groupes,})
 
 def add_groupe(request):
       submitted = False
@@ -75,19 +75,19 @@ def add_groupe(request):
         })
 
 def update_groupe(request, groupe_id):
-    student = Groupe.objects.get(pk=groupe_id)
-    form = GroupeForm(request.POST or None, instance=student)
+    groupe = Groupe.objects.get(pk=groupe_id)
+    form = GroupeForm(request.POST or None, instance=groupe)
     if form.is_valid():
         form.save()
         return redirect('groupes_list')
     return render(request, 'groupes/update_groupe.html', {
-        'student': student,
+        'groupe': groupe,
         'form': form,
     })  
 
 def delete_groupe(request, groupe_id):
-    student = Groupe.objects.get(pk=groupe_id)
-    student.delete()
+    groupe = Groupe.objects.get(pk=groupe_id)
+    groupe.delete()
     return redirect('groupes_list')
 
 def search_student(request):
@@ -103,3 +103,17 @@ def search_student(request):
         else:
             print('Not found ...')
             return render(request, 'students/not_found.html', {})
+
+def search_group(request):
+    if request.method == "GET":
+        query = request.GET.get('query')
+        if query:
+            mutiple_q = Q(Q(nom__icontains=query))
+        groupes = Groupe.objects.filter(mutiple_q)
+        if groupes:
+            return render(request, 'groupes/groupes_list.html', {
+                'groupes': groupes
+            })
+        else:
+            print('Not found ...')
+            return render(request, 'groupes/not_found.html', {})
