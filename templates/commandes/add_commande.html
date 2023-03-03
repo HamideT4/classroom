@@ -5,15 +5,16 @@
 	<div class="col-sm-2"></div>
 <div class="shadow p-4 mb-5 bg-body rounded col-md-8">
 	<center>
-		<h1>NOUVEAU ETUDIANT</h1>
+
+		<h1>Nouvelle commande</h1>
         <style>h1{color: peru;
             font-weight: bold;}</style>
 	</br>
 	{% if submitted %}
-		<h1>Les données du nouveau etudiant ont été soumit avec succés!</h1>
+		<h1>Nouvelle commande ajouté avec succès</h1>
 	{% else %}
-    <form action="", method="POST" enctype="multipart/form-data">		
-        {% csrf_token %}
+	<form action="", method="POST" enctype="multipart/form-data">
+		{% csrf_token %}
 		{{ form.as_p}}
 
 		  <div class="d-flex justify-content-end mb-2">

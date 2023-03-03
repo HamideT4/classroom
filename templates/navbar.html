@@ -16,14 +16,9 @@
             <a class="nav-link" href="{% url 'groupes_list' %}">Groupes</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Commandes</a>
+            <a class="nav-link" href="{% url 'commande_list' %}">Commandes</a>
         </li>
     </ul>
-    <form class="d-flex" method="POST" action="{% url 'search_student' %}">
-        {% csrf_token %}
-        <input class="form-control me-2" type="search" placeholder="Search" name="searched" aria-label="Search"> 
-        <button class="btn btn-outline-primary" type="submit">Search</button>
-    </form>
     </div>
 </div>
 </nav>

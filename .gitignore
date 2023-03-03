@@ -1,3 +1,10 @@
 .env
-/classroomApp/__pycache__/*
-/Django_git/__pycache__/*
+ClassroomApp/__pycache__/admin.cpython-310.pyc
+Django_git/__pycache__/settings.cpython-310.pyc
+ClassroomApp/migrations/__pycache__/0003_etudiant_photo.cpython-310.pyc
+ClassroomApp/migrations/__pycache__/0002_alter_etudiant_genre.cpython-310.pyc
+ClassroomApp/migrations/__pycache__/0001_initial.cpython-310.pyc
+ClassroomApp/__pycache__/views.cpython-310.pyc
+ClassroomApp/__pycache__/urls.cpython-310.pyc
+ClassroomApp/__pycache__/models.cpython-310.pyc
+ClassroomApp/__pycache__/forms.cpython-310.pyc
