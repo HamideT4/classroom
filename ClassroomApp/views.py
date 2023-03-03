@@ -1,5 +1,10 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
+from django.template import loader
+from django.db.models import Q
+
+from .models import Etudiant, Groupe, Commande
+from .forms import EtudiantForm, GroupeForm
 
 def index (request) :
     template = loader.get_template ('index.html')
@@ -89,7 +94,7 @@ def search_student(request):
     if request.method == "GET":
         query = request.GET.get('query')
         if query:
-            mutiple_q = Q(Q(name__icontains=query) | Q(email__icontains=query))
+            mutiple_q = Q(Q(nom__icontains=query) | Q(email__icontains=query))
         students = Etudiant.objects.filter(mutiple_q)
         if students:
             return render(request, 'students/students_list.html', {
