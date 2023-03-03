@@ -71,7 +71,7 @@ def add_groupe(request):
       else:
             form = GroupeForm
       if 'submitted' in request.GET:
-            submitted=False
+            submitted=True
       return render(request, 'groupes/add_groupe.html', {
         'form': form,
         'submitted': submitted,
