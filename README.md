@@ -12,3 +12,11 @@
   * envoyer son travail sur sa branche distante : $ git push
   
 * Après avoir fait des mises à jour, faire un pull request via l'interface de GitHub.
+
+### .env :
+  * Créer un fichier .env
+  * Y les lignes suvantes :
+    - DB_NAME = 'nom_de_la_base_des_données'
+    - DB_USER = 'root'
+    - DB_PASS = 'votre_mot_de_passe_mysql'
+  Ainsi les nouvelles configurations de la varable DATABASE de settings.py ne générera pas d'erreur.
