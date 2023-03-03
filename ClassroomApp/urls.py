@@ -16,6 +16,11 @@ urlpatterns = [
     path('update_groupe/<groupe_id>', views.update_groupe, name='update_groupe'),
     path('delete_groupe/<groupe_id>', views.delete_groupe, name='delete_groupe'),
 
+    path('commande_list', views.commande_list, name='commande_list'),
+    path('add_commande', views.add_commande, name='add_commande'),
+    path('update_commande/<commande_id>', views.update_commande, name='update_commande'),
+    path('delete_commande/<commande_id>', views.delete_commande, name='delete_commande'),
+
     path('search_student', views.search_student, name='search_student'),
 ]
 
