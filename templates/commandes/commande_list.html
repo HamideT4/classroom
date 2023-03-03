@@ -1,0 +1,35 @@
+{% extends 'layouts.html' %}
+
+{% block content %}
+	<h3>GESTION DES COMMANDES</h3>
+	<style>h3{color: peru;
+	font-weight: bold;}</style>
+	<div class="col-12 d-flex justify-content-end mb-2"> 
+        <a class="btn btn-primary sm " href="{% url 'add_commande' %}"> Nouvelle commande </a>
+    </div>
+    <h4 class="bg-secondary text-light py-2 rounded text-center">Liste des commandes </h4>
+		<table class="table table-bordered table-striped table-hover">
+		  <thead class="table-dark">
+			<tr>
+              <th>Menu</th>
+			  <th>Quantité</th>
+			  <th>Groupe en service</th>
+			  <th>Etudiant</th>
+              <th>Opérations</th>
+			</tr>
+		  </thead>
+		  <tbody>            
+			{% for commande in  students %} 
+			<tr class="success">
+			  <td>{{commande.menu}}</td>
+			  <td>{{commande.quantite}}</td>
+			  <td>{{commande.groupe}}</td>
+			  <td>{{commande.etudiant}}</td>
+             <td><a class="btn btn-warning sm mx-2" href="{% url 'update_commande' commande.id %}"> Modifier </a>
+				<a class="btn btn-danger sm mx-2" href="{% url 'delete_commande' commande.id %}" onclick="return confirm('Etes-vous sûr de vouloir supprimer cette commande ?')"> Supprimer </a> </td>
+			</tr>
+			{% endfor %}
+		  </tbody>
+		</table>
+
+{% endblock %}
