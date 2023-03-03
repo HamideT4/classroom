@@ -81,11 +81,11 @@ WSGI_APPLICATION = 'Django_git.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ClassroomApp_db',
+        'NAME': str (os.getenv('DB_NAME')),
         'HOST': '127.0.0.1',
         'PORT': '3306',
-        'USER': 'root',
-        'PASSWORD': 'Hams@ter123',
+        'USER': str (os.getenv('DB_USER')),
+        'PASSWORD': str (os.getenv('DB_PASS')),
     }
 }
 
