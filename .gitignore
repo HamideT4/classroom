@@ -1,1 +1,4 @@
 .env
+ClassroomApp/__pycache__/*
+ClassroomApp/migrations/__pycache__/*
+Django_git/__pycache__/*
