@@ -1,0 +1,31 @@
+{%extends 'layouts.html' %}
+
+{%block content%}
+<div class="row">
+	<div class="col-sm-2"></div>
+<div class="shadow p-4 mb-5 bg-body rounded col-md-8">
+	<center>
+
+		<h1>NOUVEAU ETUDIANT</h1>
+        <style>h1{color: peru;
+            font-weight: bold;}</style>
+	</br>
+    <div class="col-12 d-flex justify-content-end mb-2"> 
+        <a class="btn btn-primary sm " href="{% url 'add_groupe' %}"> AJOUTER UN GROUPE </a>
+    </div>
+	{% if submitted %}
+		<h1>Les données du nouveau etudiant ont été soumit avec succés!</h1>
+	{% else %}
+    <form action="", method="POST" enctype="multipart/form-data">		
+        {% csrf_token %}
+		{{ form.as_p}}
+
+		  <div class="d-flex justify-content-end mb-2">
+			<button type="submit" class="btn btn-primary mb-3" value="">Submit</button>
+		  </div>
+	</form>
+	{% endif %}
+	</center>
+</div>
+</div> 
+{%endblock%}

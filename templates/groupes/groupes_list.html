@@ -1,0 +1,32 @@
+{% extends 'layouts.html' %}
+
+{% block content %}
+	<h2>GESTION DES GROUPES</h2>
+	<style>h4,h2{color: peru;
+	font-weight: bold;}</style>
+	<div class="col-12 d-flex justify-content-end mb-2"> 
+        <a class="btn btn-primary sm " href="{% url 'add_groupe' %}"> AJOUTER UN GROUPE </a>
+    </div>
+	<div class="col-12 d-flex justify-content-end mb-2"> 
+	</div>
+	<h4 class="bg-secondary text-light py-2 rounded text-center">Liste des groupes </h4>
+		<table class="table table-bordered table-striped ">
+		  <thead class="table-dark">
+			<tr>
+			  <th> </th>
+			</tr>
+		  </thead>
+		  <tbody>            
+			{% for groupe  in  students %} 
+			<tr class="success">
+			  <td>{{groupe.nom}}
+			  <div class="float-end">
+			  <a class="btn btn-warning sm mx-2" href="{% url 'update_groupe' groupe.id %}"> Modifier </a>
+			  <a class="btn btn-danger sm mx-2" href="{% url 'delete_groupe' groupe.id %}" onclick="return confirm('Etes-vous sûr de vouloir supprimer cette adresse ?')"> Supprimer </a></td>
+			</div>
+			</tr>
+			{% endfor %}
+		  </tbody>
+		</table>
+
+{% endblock %}

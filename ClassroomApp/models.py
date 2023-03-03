@@ -15,6 +15,7 @@ class Etudiant(models.Model):
     prenom = models.CharField(max_length=200)
     genre = models.CharField(max_length=32, choices=Genre)
     email = models.CharField(max_length=250)
+    photo = models.ImageField(upload_to='static/photo', blank=True)
     telephone = models.CharField(max_length=20, blank=True)
     groupe = models.ForeignKey(Groupe, on_delete=models.CASCADE, blank=True)
 
