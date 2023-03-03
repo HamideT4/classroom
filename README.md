@@ -15,8 +15,8 @@
 
 ### .env :
   * Créer un fichier .env
-  * Y les lignes suvantes :
+  * Y ajouter les lignes suvantes :
     - DB_NAME = 'nom_de_la_base_des_données'
     - DB_USER = 'root'
-    - DB_PASS = 'votre_mot_de_passe_mysql'
-  Ainsi les nouvelles configurations de la varable DATABASE de settings.py ne générera pas d'erreur.
+    - DB_PASS = 'votre_mot_de_passe_mysql'.
+  Ainsi les nouvelles configurations de la variable DATABASE de settings.py ne générera pas d'erreur.
