@@ -8,15 +8,15 @@ class Groupe(models.Model):
 
 class Etudiant(models.Model):
     Genre = (
-        ('Masculin', ('Masculin')),
-        ('Feminin', ('Feminin')),
+        ('Male', ('Male')),
+        ('Female', ('Female')),
     )
     nom = models.CharField(max_length=250)
     prenom = models.CharField(max_length=200)
     genre = models.CharField(max_length=32, choices=Genre)
     email = models.CharField(max_length=250)
-    photo = models.ImageField(upload_to='static/photo', blank=True)
     telephone = models.CharField(max_length=20, blank=True)
+    photo = models.ImageField(upload_to='static/photo', blank=True)
     groupe = models.ForeignKey(Groupe, on_delete=models.CASCADE, blank=True)
 
     def __str__(self):

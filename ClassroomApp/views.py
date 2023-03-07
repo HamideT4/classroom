@@ -3,7 +3,6 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from .models import Etudiant, Groupe, Commande
 from .forms import EtudiantForm, GroupeForm, CommandeForm
-from django.http import  HttpResponseRedirect
 from django.db.models import Q
 
 from .models import Etudiant, Groupe, Commande
@@ -120,6 +119,7 @@ def search_group(request):
         else:
             print('Not found ...')
             return render(request, 'groupes/not_found.html', {})
+            
 def commande_list(request):
 	commandes = Commande.objects.all().order_by('menu')
 	return render(request, 'commandes/commande_list.html', {
