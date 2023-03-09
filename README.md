@@ -21,3 +21,6 @@
     - DB_PASS = 'votre_mot_de_passe_mysql'.
   
   Ainsi les nouvelles configurations de la variable DATABASE de settings.py ne générera pas d'erreur.
+
+## Executer le script pour qu'il ajoute les enregistrements dans la base des données :
+  ##### $ python manage.py runscript load_data
