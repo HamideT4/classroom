@@ -1,6 +1,5 @@
 .env
 *.pyc
-login.html
 /templates/bootstrap/*
 /static/photo/*
 /scripts/empty_db
