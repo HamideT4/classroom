@@ -34,6 +34,7 @@ class Commande(models.Model):
     quantite = models.IntegerField(default=0)
     groupe = models.ForeignKey(Groupe, on_delete=models.CASCADE, blank=True)
     etudiant = models.OneToOneField(Etudiant, on_delete=models.CASCADE)
+    date_commande = models.DateTimeField(auto_now_add = True)
 
     def __str__(self):
         return self.menu
