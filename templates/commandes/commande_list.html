@@ -18,6 +18,7 @@
 			<tr>
               <th>Menu</th>
 			  <th>Quantité</th>
+			  <th>Date</th>
 			  <th>Groupe en service</th>
 			  <th>Etudiant</th>
               <th>Opérations</th>
@@ -28,6 +29,7 @@
 			<tr class="success">
 			  <td>{{commande.menu}}</td>
 			  <td>{{commande.quantite}}</td>
+			  <td>{{commande.date_commande}}
 			  <td>{{commande.groupe}}</td>
 			  <td>{{commande.etudiant}}</td>
              <td><a class="btn btn-warning sm mx-2" href="{% url 'update_commande' commande.id %}"> Modifier </a>
