@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'Django_git.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
+DATABASES = { # Connect to mysql
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': str (os.getenv('DB_NAME')),
@@ -90,6 +90,16 @@ DATABASES = {
     }
 }
 
+# DATABASES = { # Connect to postgres
+#     'default': {
+#         'NAME' : str (os.getenv('PG_DB_NAME')),
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'USER': str (os.getenv('PG_DB_USER')),
+#         'PASSWORD': str (os.getenv('PG_DB_PASS')),
+#         'HOST' : str (os.getenv('PG_DB_HOST')),
+#         'PORT' : str (os.getenv('PG_PORT')),
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
